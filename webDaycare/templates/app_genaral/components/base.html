@@ -1,0 +1,184 @@
+{% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<html lang="en">
+<head>
+  <title>{% block site_title %}{% endblock %}Islam Daycare</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Bootstrap-->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <link rel="icon" href="{% static 'app_genaral/fevicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'app_genaral/normalize.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
+  <style>
+    *{
+      box-sizing: border-box;
+      color: #313030;
+      font-family: 'Mitr', sans-serif;
+      font-weight: 300;
+      
+      
+    }
+    h1,h2,h3,h4,h5,h6{
+      color:#111111;
+      font-weight: 400;
+      line-height: 1.4;
+      
+    }
+    h1{
+      font-size: 32px;
+    }
+    h2{
+      font-size: 28px;
+    }
+    h3{
+      font-size: 24px;
+    }
+    h4{
+      font-size: 22px;
+    }
+    h5{
+      font-size: 20px;
+    }
+    h6{
+      font-size: 18px;
+    }
+    p{
+      font-size: 16px;
+      line-height: 1.6;
+      
+    }
+    .side-herder-brand img{
+      display: inline-block;
+      height: 32px;
+      margin: 8px;
+    }
+    
+    
+   
+    /* body {
+      background: url("https://cdn.pixabay.com/photo/2016/03/15/03/39/childrens-1256840_1280.jpg") no-repeat center;
+      background-size: contain;
+    } */
+  
+    .social-part .fa{
+      padding-right:20px;
+    }
+    ul li a{
+      margin-right: 20px;
+      
+    }
+    .bg-body-secondary{
+      
+      
+      background-color: rgb(178, 178, 178);
+      background-image: url("https://cdn.pixabay.com/photo/2016/03/15/03/39/childrens-1256840_1280.jpg");
+      background-position: center center;
+      width: 100%; height:100%;
+      opacity: 0.7;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 20px;
+      
+    
+     }
+     .side-herder{
+      background-color: white;
+      border-bottom: 1px solid rgb(215, 215, 215);
+      box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: flex-start;
+      height: 50px;
+     }
+     .side-herder-item{
+      color: #000;
+      background-color: rgb(0, 0, 0,0);
+      font-weight: 400;
+      text-decoration:none ;
+      display:flex;
+      align-items: center;
+      padding: 10px 0px;
+     }
+     
+     /* .side-footer{
+      background-color: rgb(245, 242, 242);
+      text-align: center;
+      padding: 16px;
+     }
+     .side-footer-text{
+      font-size: 12px;
+     } */
+     .card{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+      padding: 5px;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      background-color: #f1f1f1;
+      
+      margin-left: 10%;
+      margin-right: 4%;
+      display: inline-block;
+      
+     }
+     
+   
+    
+
+
+  </style>
+</head>
+<main>
+
+</main>
+  <body>
+    {% include 'app_genaral/components/side_header.html' %}
+
+    {% block content %}
+   
+    {% endblock %}
+
+    
+ 
+
+ 
+  {% for activity in activities %}
+  <div class="card mb-3" style="max-width: 540px; ">
+    <div class="row ">
+      <div class="col-md-4">
+        <img class="card-img-top" src="{{activity.activity_image}}" >
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{activity.activity_name}}</h5>
+          <p class="card-text">{{activity.activity_description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+    
+    
+
+
+{% include 'app_genaral/components/side_footer.html' %}
+
+
+  </body>
+
+  
+
+</html>
